@@ -6,10 +6,9 @@ import { TextKey } from './TextKey';
 import { useKeyPressHandler } from 'hooks/useKeyPressHandler';
 
 /**
- * 
+ * Keyboard component
  */
 export const MainKeyboard = () => {
-
     const { keysPress } = useKeyPressHandler();
 
     return (
