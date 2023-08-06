@@ -1,7 +1,9 @@
-import '../../styles/keyboard.css';
-import { firstRowTextKeys, secondRowTextKeys, thirdRowTextKeys } from '../../data/keyboardText';
+// Styles
+import 'styles/keyboard.css';
+
+import { firstRowTextKeys, secondRowTextKeys, thirdRowTextKeys } from 'data/keyboardText';
 import { TextKey } from './TextKey';
-import { useKeyPressHandler } from '../../hooks/useKeyPressHandler';
+import { useKeyPressHandler } from 'hooks/useKeyPressHandler';
 
 /**
  * 
