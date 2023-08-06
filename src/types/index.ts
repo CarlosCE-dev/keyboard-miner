@@ -1,0 +1,1 @@
+export type { InventoryTypes } from './InventoryTypes';

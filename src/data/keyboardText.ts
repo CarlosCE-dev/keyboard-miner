@@ -1,4 +1,9 @@
-export const firstRowTextKeys = [
+import { InventoryTypes } from "types";
+
+/**
+ * First row text keys
+ */
+export const firstRowTextKeys: InventoryTypes[] = [
     "Q",
     "W",
     "E",
@@ -10,7 +15,10 @@ export const firstRowTextKeys = [
     "O",
     "P",
 ];
-export const secondRowTextKeys = [
+/**
+ * Second row text keys
+ */
+export const secondRowTextKeys: InventoryTypes[] = [
     "A",
     "S",
     "D",
@@ -21,7 +29,10 @@ export const secondRowTextKeys = [
     "K",
     "L",
 ];
-export const thirdRowTextKeys = [
+/**
+ * Third row text keys
+ */
+export const thirdRowTextKeys: InventoryTypes[] = [
     "Z",
     "X",
     "C",

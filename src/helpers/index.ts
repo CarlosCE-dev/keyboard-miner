@@ -1,0 +1,1 @@
+export { sumInventoryTotals } from './inventory';
