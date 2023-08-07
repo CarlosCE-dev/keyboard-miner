@@ -1,24 +1,38 @@
+import { getStoreItems } from "data";
+import { useAppDispatch, useAppSelector } from "hooks";
 import { useCallback, useEffect, useState } from "react";
+import { manualIncrement } from "store/mainReducer";
 
+const store = getStoreItems();
 /**
  * Use key press handler for keyboard
  */
 export const useKeyPressHandler = () => {
     const [keysPress, setKeys] = useState<string[]>([]);
+    const inventory = useAppSelector(x => x.main.inventory);
+    const dispatch = useAppDispatch();
+    
     /**
      * Key down event
      * @param event Keyboard event
      */
-    const keyDownEvent = useCallback((event: KeyboardEvent) => {
+    const keyDownEvent = (event: KeyboardEvent) => {
+        if (keysPress.includes(event.key)) return;
+        
+        const key = store.find(x => x.name === event.key.toLocaleUpperCase());
+        if (key && inventory.some(x => !x.disabled && x.type === key.name)) {
+            dispatch(manualIncrement(key));
+        }
+
         setKeys([...keysPress, event.key]);
-    }, []);
+    };
     /**
      * Key up event
      * @param event Keyboard event
      */
-    const keyUpEvent = useCallback((event: KeyboardEvent) => {
+    const keyUpEvent = (event: KeyboardEvent) => {
         setKeys(keysPress.filter(x => x !== event.key));
-    }, []);
+    };
     /**
      * Adds key down event 
      */
@@ -39,6 +53,7 @@ export const useKeyPressHandler = () => {
     }, [keyUpEvent]);
 
     return {
-        keysPress
+        keysPress,
+        inventory
     }
 }

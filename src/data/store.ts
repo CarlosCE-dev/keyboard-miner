@@ -12,7 +12,7 @@ export const getStoreItems = () => {
             costMultiplication: 3.50,
             name: x,
             price: 70,
-            gainValue: 10,
+            gainValue: 1,
         }
         return item;
     }));
@@ -22,7 +22,7 @@ export const getStoreItems = () => {
             costMultiplication: 3.50,
             name: x,
             price: 70,
-            gainValue: 10,
+            gainValue: 1,
         }
         return item;
     }));
@@ -32,7 +32,7 @@ export const getStoreItems = () => {
             costMultiplication: 3.50,
             name: x,
             price: 70,
-            gainValue: 10,
+            gainValue: 1,
         }
         return item;
     }));

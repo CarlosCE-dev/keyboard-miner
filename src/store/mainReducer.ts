@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 import { getInitialInventoryState } from 'data';
 import { sumInventoryTotals } from 'helpers';
-import { IInventory } from 'interfaces';
+import { IInventory, IKey } from 'interfaces';
 import { InventoryTypes } from 'types';
 
 /**
@@ -31,8 +31,9 @@ export const mainSlice = createSlice({
     name: 'main',
     initialState,
     reducers: {
-        manualIncrement: (state) => {
-            state.value += 1;
+        manualIncrement: (state, action: PayloadAction<IKey>) => {
+            state.value = state.value + action.payload.gainValue;
+            localStorage.setItem("data", JSON.stringify({ value: state.value, inventory: state.inventory }));
         },
         increment: (state) => {
             state.value = state.value + sumInventoryTotals(state.inventory);

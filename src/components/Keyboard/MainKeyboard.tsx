@@ -2,15 +2,14 @@
 import 'styles/keyboard.css';
 
 import { TextKey } from './TextKey';
-import { useAppSelector, useKeyPressHandler } from 'hooks';
+import { useKeyPressHandler } from 'hooks';
 import { firstRowTextKeys, secondRowTextKeys, thirdRowTextKeys } from 'data';
 
 /**
  * Keyboard component
  */
 export const MainKeyboard = () => {
-    const { keysPress } = useKeyPressHandler();
-    const inventory = useAppSelector(x => x.main.inventory);
+    const { keysPress, inventory } = useKeyPressHandler();
 
     return (
         <div className="base">
