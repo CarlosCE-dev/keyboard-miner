@@ -3,6 +3,9 @@ import { useAppDispatch, useAppSelector } from "hooks";
 import { useEffect, useState } from "react";
 import { manualIncrement } from "store/mainReducer";
 
+/**
+ * List of store items
+ */
 const store = getStoreItems();
 /**
  * Use key press handler for keyboard

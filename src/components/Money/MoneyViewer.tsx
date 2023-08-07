@@ -11,7 +11,6 @@ TweenOne.plugins.push(Children);
 export const MoneyViewer = () => {
     const [animation, setAnimation] = useState<AnimObjectOrArray>();
     const money = useAppSelector(x => x.main.value);
-
     /**
      * Update money animation
      */

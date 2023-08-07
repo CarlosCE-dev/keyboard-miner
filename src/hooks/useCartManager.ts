@@ -1,6 +1,9 @@
 import { increment } from "store/mainReducer";
 import { useAppDispatch, useInterval } from ".";
 
+/**
+ * Cart manager for app
+ */
 export const useCartManager = () => {
     // The counter
     const dispatch = useAppDispatch();

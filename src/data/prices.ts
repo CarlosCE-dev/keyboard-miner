@@ -1,5 +1,8 @@
 import { IKey } from "interfaces";
 
+/**
+ * Returns a list of prices for each key
+ */
 export const getPriceItems : IKey[] = [
     {
         costMultiplication: 1.5,

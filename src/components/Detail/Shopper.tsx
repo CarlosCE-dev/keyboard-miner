@@ -5,6 +5,9 @@ import { useAppSelector } from "hooks";
 import { DetailContainer } from "./DetailContainer";
 import { IInventory } from "interfaces";
 
+/**
+ * Basic accordion use to buy new items
+ */
 export const Shopper = () => {
     const itemSelected = useAppSelector(x => x.main.currentSelected);
     const inventory = useAppSelector(x => x.main.inventory);
@@ -12,15 +15,21 @@ export const Shopper = () => {
     const divStyle = {
         width: '100%'
     }
-
+    /**
+     * Update accordion each item an item is selected
+     */
     useEffect(() => {
         setExpanded(true);
     }, [itemSelected]);
-    
+    /**
+     * On expanded button event
+     */
     const onExpandedButtonClick = () => {
         setExpanded(!expanded);
     }
-
+    /**
+     * Memorize item inventory. Will update when state is change
+     */
     const itemInventory = useMemo(() => inventory.find(x => x.type === itemSelected) as IInventory, [inventory, itemSelected]);
 
     return (

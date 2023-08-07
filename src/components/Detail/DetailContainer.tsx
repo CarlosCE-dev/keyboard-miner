@@ -4,11 +4,27 @@ import { useCartItem } from "hooks";
 import { IInventory, IKey } from "interfaces";
 import { CSSProperties, useMemo } from "react";
 
+/**
+ * List of store items
+ */
 const cartItems = getStoreItems();
+/**
+ * Custom props for the {@link DetailContainer} component
+ */
 interface Props {
+    /**
+     * Current item selected
+     */
     item: IInventory;
 }
+/**
+ * Renders the detail container for buying an item
+ * @param props The custom props of the component
+ */
 export const DetailContainer = ({ item }: Props) => {
+    /**
+     * Returns a cart item based on the current item selected
+     */
     const data = useMemo(() => cartItems.find(x => x.name === item.type) as IKey, [item]);
     const { price, disabledButton, enablePrice, enableButton, onBuyItem, onEnableButtonClick } = useCartItem(item, data);
     const description = `Bought: ${item.amount}`;
