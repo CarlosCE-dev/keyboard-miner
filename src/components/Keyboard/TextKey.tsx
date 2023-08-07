@@ -26,7 +26,7 @@ export const TextKey = ({ item, keysPress }: Props) => {
     const isActive = useMemo(() => keysPress.includes(item.type.toLowerCase()), [keysPress]);
 
     return (
-        <TextKeyAnimation $active={isActive && !item.disabled} $disabled={item.disabled}>
+        <TextKeyAnimation $active={isActive && !item.disabled} $disabled={item.disabled} className="keyboard__key">
             { item.type }
         </TextKeyAnimation>
     )
