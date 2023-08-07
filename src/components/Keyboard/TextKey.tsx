@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { TextKeyAnimation } from "./TextKey.styled";
 import { IInventory } from "interfaces";
+import { InfoButtonContainer } from "./InfoButton";
 
 /**
  * Custom props for the {@link TextKey} component
@@ -27,6 +28,7 @@ export const TextKey = ({ item, keysPress }: Props) => {
 
     return (
         <TextKeyAnimation $active={isActive && !item.disabled} $disabled={item.disabled} className="keyboard__key">
+            <InfoButtonContainer name={item.type} />
             { item.type }
         </TextKeyAnimation>
     )

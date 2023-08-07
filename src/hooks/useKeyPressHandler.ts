@@ -1,6 +1,6 @@
 import { getStoreItems } from "data";
 import { useAppDispatch, useAppSelector } from "hooks";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { manualIncrement } from "store/mainReducer";
 
 const store = getStoreItems();

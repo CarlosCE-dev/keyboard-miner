@@ -16,13 +16,18 @@ interface MainState {
      * Inventory of main reducer
      */
     inventory: IInventory[];
+    /**
+     * Current item selected
+     */
+    currentSelected: InventoryTypes;
 }
 /**
  * Initial state
  */
 const initialState: MainState = {
     value: 0,
-    inventory: getInitialInventoryState()
+    inventory: getInitialInventoryState(),
+    currentSelected: "A"
 }
 /**
  * Basic main slice
@@ -60,13 +65,25 @@ export const mainSlice = createSlice({
             if (!item) return;
             state.inventory = item.inventory;
             state.value = item.value;
+        },
+        selectItem: (state, action: PayloadAction<InventoryTypes>) => {
+            state.currentSelected = action.payload;
+        },
+        enableInventory: (state, action: PayloadAction<InventoryTypes>) => {
+            state.inventory = state.inventory.map((x) => {
+                if (x.type === action.payload){
+                    x.disabled = false;
+                }
+                return x;
+            });
+            localStorage.setItem("data", JSON.stringify({ value: state.value, inventory: state.inventory }));
         }
     },
 })
 /**
  * Main reduces actions
  */
-export const { increment, decrement, incrementInventory, loadStart, manualIncrement } = mainSlice.actions;
+export const { increment, decrement, incrementInventory, loadStart, manualIncrement, selectItem, enableInventory } = mainSlice.actions;
 /**
  * Main slice reducer
  */
